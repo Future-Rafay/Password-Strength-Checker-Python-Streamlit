@@ -53,7 +53,7 @@ This is a **Password Strength Checker** built with **Streamlit** that evaluates 
 ## 💡 Author
 **Abdul Rafay**  
 Built with ❤️ and Streamlit  
-[GitHub](https://github.com/your-username) | [LinkedIn](https://linkedin.com/in/your-profile)
+[GitHub](https://github.com/Future-Rafay/) | [LinkedIn](https://www.linkedin.com/in/rafay-nadeem-web-developer/)
 
 ---
 ### 🚀 Ready to Improve Your Password Security? Try It Now!
