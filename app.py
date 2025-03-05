@@ -13,7 +13,6 @@ st.write("🔒 Check your password strength and generate a strong password here!
 # Function to generate a strong password
 
 
-
 def generate_strong_password():
     import random
     import string
@@ -21,6 +20,7 @@ def generate_strong_password():
     characters = string.ascii_letters + string.digits + "!@#$%^&*"
     password = "".join(random.choice(characters) for _ in range(length))
     return password
+
 
 # Sidebar for additional info
 with st.sidebar:
