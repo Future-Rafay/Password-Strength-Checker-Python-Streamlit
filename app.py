@@ -6,8 +6,8 @@ st.set_page_config(page_title="Password Strength Checker",
                    page_icon=":lock:", layout="wide")
 
 # Title
-st.title("Do you think you have a strong password?")
-st.write("🔒 Check your password strength and generate a strong password here! 🚀")
+st.title("🤔 Do you think you have a strong password?")
+st.subheader("🔒 Check your password strength and generate a strong password here!")
 
 # Function to generate a strong password
 
@@ -30,8 +30,6 @@ def safe_copy(text):
         pyperclip.copy(text)
         st.toast("Copied to clipboard!", icon="✅")
     except Exception as e:
-        st.warning("""📋 Clipboard access not available - 
-                   Select and copy manually:""")
         st.code(text)
 
 
