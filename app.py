@@ -1,6 +1,5 @@
 import streamlit as st
 import re
-import pyperclip  # For copying text to clipboard
 
 # Page configuration
 st.set_page_config(page_title="Password Strength Checker",
@@ -21,6 +20,20 @@ def generate_strong_password():
     password = "".join(random.choice(characters) for _ in range(length))
     return password
 
+# Function to copy text to clipboard
+
+
+def safe_copy(text):
+    """Safe clipboard copy with fallback"""
+    try:
+        import pyperclip
+        pyperclip.copy(text)
+        st.toast("Copied to clipboard!", icon="✅")
+    except Exception as e:
+        st.warning("""📋 Clipboard access not available - 
+                   Select and copy manually:""")
+        st.code(text)
+
 
 # Sidebar for additional info
 with st.sidebar:
@@ -37,9 +50,6 @@ with st.sidebar:
     if st.button("🎲 Generate Strong Password"):
         strong_password = generate_strong_password()
         st.success(f"🔑 **Generated Password:** `{strong_password}`")
-        if st.button("📋 Copy to Clipboard"):
-            pyperclip.copy(strong_password)
-            st.toast("✅ Password copied to clipboard!")
 
         st.divider()
 
@@ -90,7 +100,7 @@ def check_password_strength(password):
         feedback.append("❌ Include at least one special character (!@#$%^&*).")
 
     # Strength Rating
-    strength_levels = ["Weak",
+    strength_levels = ["Very Weak", "Weak",
                        "Moderate", "Strong", "Very Strong"]
     strength = strength_levels[score]
 
@@ -122,8 +132,7 @@ password = st.text_input("Enter your password:",
 
 # Copy to Clipboard Button
 if st.button("📋 Copy Password to Clipboard"):
-    pyperclip.copy(password)
-    st.toast("✅ Password copied to clipboard!")
+    safe_copy(password)
 
 
 # Check password strength
@@ -136,4 +145,4 @@ if st.button("🛡️ Check Strength"):
 
 # Footer
 st.markdown("---")
-st.markdown('© 2023 Rafay Nadeem. Built with 🤍. \n All rights Reserved')
+st.markdown('© 2025 Rafay Nadeem. Built with 🤍. \n All rights Reserved')
